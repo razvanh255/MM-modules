@@ -1,0 +1,613 @@
+:root {
+  --color-text: lightgray;
+  --color-text-dimmed: silver;
+  --color-text-bright: white;
+  --color-text-shade: gray;
+  --color-text-fade: dimgray;
+  --color-text-dark: darkgray;
+}
+
+/* Weather */
+
+.onecall .currentweather .subs {
+  font-size: 50%;
+}
+
+.onecall .currentweather .wi-thermometer,
+.onecall .currentweather .wi-humidity, 
+.onecall .currentweather .wi-sunset, 
+.onecall .currentweather .wi-sunrise,
+.onecall .currentweather .fa-binoculars {
+  display: inline-block;
+  transform: scale(0.65);
+}
+
+.onecall .currentweather .wi-hot,
+.onecall .currentweather .wi-barometer {
+  transform: scale(0.75);
+}
+
+.onecall .currentweather .wi-barometer,
+.onecall .currentweather .wi-thermometer {
+  margin-top: 5px;
+}
+
+.onecall .currentweather .fa-tint {
+  transform: translate(0, 2px) scale(0.7);
+}
+
+.onecall .currentweather .fa-tint-slash {
+  transform: translate(0, 2px) scale(0.7);
+  margin: 0 -10px;
+}
+
+.onecall .forecast .fa-tint-slash {
+  transform: translate(0) scale(1.2);
+  margin: 0;
+}
+
+.onecall .currentweather .xlarge {
+  display: inline-block;
+  transform: translate(-5px, -5px);
+  letter-spacing: -5px;
+  padding-right: 3px;
+}
+
+.onecall .current-weather .weathericon,
+.onecall .currentweather .weathericon {
+  height: 70px;
+  float: left;
+}
+
+.onecall .currentweather .deg {
+  font-size: 50%;
+  font-weight: 400;
+  margin-left: -30px;
+}
+
+.onecall .currentweather .description::first-letter,
+.onecall .current-description::first-letter {
+  text-transform: capitalize !important;
+}
+
+.compliments .wi {
+  display: inline-block;
+  transform: translate(20px, 25px) scale(0.6);
+}
+
+.currentweather .wi-day-sunny {
+  content: url("icons/clear.png");
+  transform: translate(0, 15px) scale(1.4);
+}
+
+.compliments .wi-day-sunny {
+  content: url("icons/clear.png");
+  transform: translate(0, 25px) scale(1);
+}
+
+.compliments .wi-day-cloudy,
+.currentweather .wi-day-cloudy {
+  content: url("icons/mostlysunny.png");
+}
+
+.compliments .wi-cloudy,
+.currentweather .wi-cloudy {
+  content: url("icons/cloudy.png");
+}
+
+.compliments .wi-day-cloudy-windy,
+.currentweather .wi-day-cloudy-windy {
+  content: url("icons/mostlycloudy.png");
+}
+
+.compliments .wi-day-showers,
+.currentweather .wi-day-showers {
+  content: url("icons/rain.png");
+}
+
+.compliments .wi-day-rain,
+.currentweather .wi-day-rain {
+  content: url("icons/rain.png");
+}
+
+.compliments .wi-day-thunderstorm,
+.currentweather .wi-day-thunderstorm {
+  content: url("icons/tstorms.png");
+}
+
+.compliments .wi-day-snow,
+.currentweather .wi-day-snow {
+  content: url("icons/snow.png");
+}
+
+.compliments .wi-day-fog,
+.currentweather .wi-day-fog {
+  content: url("icons/fog.png");
+}
+
+.currentweather .wi-night-clear {
+  content: url("icons/nt_clear.png");
+  transform: translate(0, 15px) scale(1.6);
+}
+
+.compliments .wi-night-clear {
+  content: url("icons/nt_clear.png");
+  transform: translate(0, 25px) scale(1.2);
+}
+
+.compliments .wi-night-cloudy,
+.currentweather .wi-night-cloudy {
+  content: url("icons/nt_cloudy.png");
+}
+
+.compliments .wi-night-alt-cloudy,
+.currentweather .wi-night-alt-cloudy {
+  content: url("icons/nt_cloudy.png");
+}
+
+.compliments .wi-night-alt-showers,
+.currentweather .wi-night-alt-showers {
+  content: url("icons/nt_rain.png");
+}
+
+.compliments .wi-night-alt-rain,
+.currentweather .wi-night-alt-rain {
+  content: url("icons/nt_rain.png");
+}
+
+.compliments .wi-night-alt-thunderstorm,
+.currentweather .wi-night-alt-thunderstorm {
+  content: url("icons/nt_tstorms.png");
+}
+
+.compliments .wi-night-alt-snow,
+.currentweather .wi-night-alt-snow {
+  content: url("icons/nt_snow.png");
+}
+
+.compliments .wi-night-alt-cloudy-windy,
+.currentweather .wi-night-alt-cloudy-windy {
+  content: url("icons/nt_hazy.png");
+}
+
+.compliments .wi-sandstorm,
+.currentweather .wi-sandstorm {
+  content: url("icons/tstorms.png");
+}
+
+.onecall .airpollution {
+  margin-bottom: 10px;
+}
+
+/* Forecast */
+
+.onecall .flex-container {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.onecall .flex-container .item {
+  order: 0;
+  width: 30%;
+  flex: 1 0 auto;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.onecall header {
+  margin-top: 20px;
+}
+
+.onecall .weatherforecast header {
+  margin-bottom: 5px;
+}
+
+.onecall .weatherforecast table {
+  float: right;
+  margin-bottom: 5px;
+}
+
+.onecall .daily table tr:nth-child(1) .en:nth-child(1),
+.onecall .daily table tr:nth-child(2) .en:nth-child(1),
+.onecall .daily table tr:nth-child(1) .ro:nth-child(1),
+.onecall .daily table tr:nth-child(2) .ro:nth-child(1) {
+  text-indent: -9999px;
+  line-height: 0;
+}
+
+.onecall .daily table tr:nth-child(1) .ro:nth-child(1)::after {
+  text-indent: 0;
+  content: "Astăzi";
+  display: block;
+  line-height: initial;
+}
+
+.onecall .daily table tr:nth-child(2) .ro:nth-child(1)::after {
+  text-indent: 0;
+  content: "Mâine";
+  display: block;
+  line-height: initial;
+}
+
+.onecall .daily table tr:nth-child(1) .en:nth-child(1)::after {
+  text-indent: 0;
+  content: "Today";
+  display: block;
+  line-height: initial;
+}
+
+.onecall .daily table tr:nth-child(2) .en:nth-child(1)::after {
+  text-indent: 0;
+  content: "Tomorrow";
+  display: block;
+  line-height: initial;
+}
+
+.onecall .daily table tr:nth-child(1) .day:nth-child(1)::after,
+.onecall .hourly table tr:nth-child(1) .day:nth-child(1) {
+  color: lime;
+}
+
+.onecall .daily table tr:nth-child(2) .day:nth-child(2)::after {
+  color: greenyellow;
+}
+
+.onecall .hourly .item:nth-child(1) .fday,
+.onecall .daily .item:nth-child(1) .fday {
+  color: lime;
+}
+
+.onecall .weatherforecast .day {
+  text-transform: capitalize;
+}
+
+.onecall .weatherforecast .day,
+.onecall .weatherforecast .humidity,
+.onecall .weatherforecast table tr td:nth-child(1) {
+  width: 20% !important;
+}
+
+.onecall .weatherforecast .weather-icon,
+.onecall .weatherforecast .dewPoint,
+.onecall .weatherforecast table tr td:nth-child(2) {
+  width: 15% !important;
+}
+
+.onecall .weatherforecast .max-temp,
+.onecall .weatherforecast .pressure,
+.onecall .weatherforecast table tr td:nth-child(3) {
+  width: 20% !important;
+}
+
+.onecall .weatherforecast .min-temp,
+.onecall .weatherforecast .realFeel,
+.onecall .weatherforecast .visibility,
+.onecall .weatherforecast table tr td:nth-child(4) {
+  width: 20% !important;
+}
+
+.onecall .weatherforecast .rain,
+.onecall .weatherforecast .uvIndex,
+.onecall .weatherforecast table tr td:nth-child(5) {
+  width: 25% !important;
+}
+
+.onecall .weatherforecast .rain, 
+.onecall .weatherforecast .snow {
+  color: lightgray;
+}
+
+.onecall .weatherforecast .fa-tint,
+.onecall .weatherforecast .wi-umbrella {
+  font-size: 80%;
+}
+
+.onecall .weatherforecast .fa-tint-slash {
+  font-size: 75%;
+}
+
+.onecall .weatherforecast .wi-day-sunny {
+  transform: translateX(-2px);
+  color: gold;
+}
+
+.onecall .weatherforecast .wi-day-cloudy {
+  transform: translate(0, 3px);
+  color: lightblue;
+}
+
+.onecall .weatherforecast .wi-cloudy {
+  transform: translateX(-1px);
+  color: powderblue;
+}
+
+.onecall .weatherforecast .wi-day-cloudy-windy {
+  color: skyblue;
+}
+
+.onecall .weatherforecast .wi-day-showers {
+  color: skyblue;
+}
+
+.onecall .weatherforecast .wi-day-rain {
+  color: deepskyblue;
+}
+
+.onecall .weatherforecast .wi-day-thunderstorm {
+  color: dodgerblue;
+}
+
+.onecall .weatherforecast .wi-day-snow {
+  color: snow;
+}
+
+.onecall .weatherforecast .wi-day-fog {
+  color: white;
+}
+
+.onecall .weatherforecast .wi-night-clear {
+  transform: translateX(-2px);
+  font-size: 120%;
+  color: silver;
+}
+
+.onecall .weatherforecast .wi-night-cloudy {
+  color: powderblue;
+}
+
+.onecall .weatherforecast .wi-night-alt-cloudy {
+  color: powderblue;
+}
+
+.onecall .weatherforecast .wi-night-showers {
+  color: skyblue;
+}
+
+.onecall .weatherforecast .wi-night-alt-showers {
+  color: skyblue;
+}
+
+.onecall .weatherforecast .wi-night-rain {
+  color: deepskyblue;
+}
+
+.onecall .weatherforecast .wi-night-alt-rain {
+  color: deepskyblue;
+}
+
+.onecall .weatherforecast .wi-night-thunderstorm {
+  color: royalblue;
+}
+
+.onecall .weatherforecast .wi-night-alt-thunderstorm {
+  color: royalblue;
+}
+
+.onecall .weatherforecast .wi-night-snow {
+  color: snow;
+}
+
+.onecall .weatherforecast .wi-night-alt-snow {
+  color: snow;
+}
+
+.onecall .weatherforecast .wi-night-alt-cloudy-windy {
+  transform: translateX(-1px);
+  color: skyblue;
+}
+
+/* colors */
+
+.onecall .grayscale {
+   filter: grayscale(100%);
+}
+
+.onecall .transparent {
+  background: transparent;
+}
+
+.onecall .fade {
+  color: var(--color-text-fade);
+}
+
+.onecall .shade {
+  color: var(--color-text-shade);
+}
+
+.onecall .dimmed {
+  color: var(--color-text-dimmed);
+}
+
+.onecall .normal {
+  color: var(--color-text);
+}
+
+.onecall .bright {
+  color: var(--color-text-bright);
+}
+
+.onecall .little {
+  font-size: 80%;
+  transform: translate(0, -1px);
+}
+
+.onecall .xsmall {
+  font-size: 0.7rem;
+}
+
+.onecall .small {
+  font-size: 1rem;
+}
+
+.onecall .midget {
+  font-size: 1.2rem;
+}
+
+.onecall .smedium {
+  font-size: 1.4rem;
+}
+
+.onecall .medium {
+  font-size: 1.6rem;
+}
+
+.onecall .slarge {
+  font-size: 2rem;
+  line-height: 2;
+}
+
+.onecall .large {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.onecall .details {
+  line-height: 1.8rem;
+}
+
+.onecall .xlarge {
+  font-size: 6rem;
+  line-height: 1;
+  background: -webkit-linear-gradient(white, darkgray);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.onecall .thin {
+  font-family: var(--font-secondary);
+  font-weight: 100;
+}
+
+.onecall .light {
+  font-weight: 300;
+}
+
+.onecall .regular {
+  font-weight: 400;
+}
+
+.onecall .bold {
+  font-weight: 500;
+}
+
+.onecall .align-right {
+  text-align: right;
+}
+
+.onecall .align-left {
+  text-align: left;
+}
+
+.onecall .align-center {
+  text-align: center;
+}
+
+.onecall .darkred {
+  color: darkred;
+}
+
+.onecall .redrf {
+  color: red;
+}
+
+.onecall .red {
+  color: red;
+}
+
+.onecall .orangered {
+  color: orangered;
+}
+
+.onecall .tomato {
+  color: tomato;
+}
+
+.onecall .coral {
+  color: coral;
+}
+
+.onecall .darkorange {
+  color: darkorange;
+}
+
+.onecall .orange {
+  color: orange;
+}
+
+.onecall .gold {
+  color: gold;
+}
+
+.onecall .yellow {
+  color: yellow;
+}
+
+.onecall .greenyellow {
+  color: greenyellow;
+}
+
+.onecall .chartreuse {
+  color: chartreuse;
+}
+
+.onecall .lawngreen {
+  color: lawngreen;
+}
+
+.onecall .lime {
+  color: lime;
+}
+
+.onecall .powderblue {
+  color: powderblue;
+}
+
+.onecall .lightblue {
+  color: lightblue;
+}
+
+.onecall .skyblue {
+  color: skyblue;
+}
+
+.onecall .lightskyblue {
+  color: lightskyblue;
+}
+
+.onecall .deepskyblue {
+  color: deepskyblue;
+}
+
+.onecall .dodgerblue {
+  color: dodgerblue;
+}
+
+.onecall .lightgreen {
+  color: lightgreen;
+}
+
+.onecall .cyan {
+  color: cyan;
+}
+
+.onecall .magenta {
+  color: magenta;
+}
+
+.onecall .olive {
+  color: olive;
+}
+
+.onecall .purple {
+  color: purple;
+}
+
+.onecall .violet {
+  color: violet;
+}
