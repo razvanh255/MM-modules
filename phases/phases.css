@@ -1,0 +1,45 @@
+.compliments .pix {
+  position: relative;
+  top: 120px;
+  left: 0px;
+  transform: scale(0.25) !important;
+}
+
+.compliments .txt {
+  position: relative;
+  left: -100px;
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.compliments .wi-moon-new {
+  content: url("pix/newmoon.png");
+}
+
+.compliments .wi-moon-waxing-crescent-4 {
+  content: url("pix/waxcres23.png");
+}
+
+.compliments .wi-moon-first-quarter {
+  content: url("pix/waxcres50.png");
+}
+
+.compliments .wi-moon-waxing-gibbous-4 {
+  content: url("pix/waxgib77.png");
+}
+
+.compliments .wi-moon-full {
+  content: url("pix/fullmoon.png");
+}
+
+.compliments .wi-moon-waning-gibbous-4 {
+  content: url("pix/wanegib77.png");
+}
+
+.compliments .wi-moon-third-quarter {
+  content: url("pix/wanecres49.png");
+}
+
+.compliments .wi-moon-waning-crescent-4 {
+  content: url("pix/wanecres19.png");
+}
