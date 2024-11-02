@@ -1,354 +1,156 @@
-/* MagicMirror²
- * Module: Moon phases
- *
- * Redesigned by Răzvan Cristea
- * for iPad 3 & HD display
- *
- * https://github.com/cristearazvanh
- * Creative Commons BY-NC-SA 4.0, Romania. 
- *
- * Original MagicMirror² MIT Licensed.
- */
+Module.register("phases", {
+    defaults: {
+        updateInterval: 60 * 60 * 1000,
+        animationSpeed: config.animation,
+        moonPhasesNightOnly: false,
+        nightStart: 19,
+        nightEnd: 6,
+        width: "100",
+        height: "100"
+    },
 
-Module.register("phases",{
-	// Default module config.
-	defaults: {
-		updateInterval: 60 * 60 * 1000,
-		animationSpeed: config.animation,
-		moonPhasesNightOnly: false,
-		nightStart: "19",
-		nightEnd: "06",
-		width: "70",
-		height: "70"
-	},
+    start: function() {
+        Log.info('Starting module: ' + this.name);
+        this.updateDom(this.config.animationSpeed);
+        setInterval(() => {
+            this.updateDom(this.config.animationSpeed);
+        }, this.config.updateInterval);
+    },
 
-	start: function() {
-		Log.info('Starting module: ' + this.name);
-		var self = this;
-		setInterval(function () {
-			self.updateDom(self.config.animationSpeed);
-		}, this.config.updateInterval);
-	},
+    getHeader: function () {
+        return this.data.header || `<i class="fa fa-moon mooncolor"></i> &nbsp; ${this.translate("Moon_Phases")}`;
+    },
 
-	getScripts: function () {
-		return [];
-	},
+    getStyles: function () {
+        return ["phases.css"];
+    },
 
-	getStyles: function () {
-		return ["phases.css"];
-	},
+    getTranslations: function () {
+        return {
+            en: "en.json",
+            ro: "ro.json"
+        };
+    },
 
-	getTranslations: function () {
-		return {
-		 en: "en.json",
-		 ro: "ro.json"
-		};
-	},
+    notificationReceived: function (notification) {
+        if (notification === "MIDNIGHT_NOTIFICATION") {
+            this.updateDom();
+        }
+    },
 
-	notificationReceived: function (notification, payload, sender) {
-		if (notification === "MIDNIGHT_NOTIFICATION") {
-			this.updateDom();
-		}
-	},
+    getDom: function() {
+        const date = new Date();
+        const jd = this.calculateJulianDate(date);
+        const { image, phase } = this.calculateMoonPhase(jd);
 
-	// Override dom generator.
-	getDom: function() {
-		var date = new Date();
-		var day = date.getDate();
-		var month = date.getMonth() + 1;
-		var year = date.getFullYear();
-		var hour = date.getHours();
+        if (this.config.moonPhasesNightOnly) {
+            const hour = date.getHours();
+            if (hour < this.config.nightStart && hour >= this.config.nightEnd) return document.createElement("div");
+        }
 
-		if (month < 3) {
-			year--;
-			month += 12;
-		}
+        this.sendNotification("MOON_PHASE", { phase: phase });
 
-		// Calculate Julian Day (jd) 
-		var a = parseInt(year / 100);
-		var b = parseInt(a / 4);
-		var c = 2 - a + b;
-		var e = parseInt(365.25 * (year + 4716));
-		var f = parseInt(30.6001 * (month + 1));
-		var jd = c + day + e + f - 1524.5;
+        const wrapper = document.createElement("div");
+        wrapper.style.height = `calc(${this.config.height / 2}px)`;
 
-		var daysSinceNew = jd - 2451549.5;
-		var newMoons = daysSinceNew / 29.5306;
-		var newMoonsFract = newMoons - parseInt(newMoons);
-		var phase = newMoonsFract * 29.5306;
-		// Log.info(phase);
+        const img = document.createElement("img");
+        img.style.height = `${this.config.height}px`;
+        img.style.width = `${this.config.width}px`;
+        img.src = `modules/phases/pix/${image}`;
+        wrapper.appendChild(img);
 
-		if (phase > 29.5) {
-			phase = 0;
-		}
+        const txt = document.createElement("span");
+        txt.className = "medium bright";
+        txt.style.cssFloat = "left";
+        txt.innerHTML = this.translate(phase);
+        wrapper.appendChild(txt);
 
-		switch(true){
-			case phase < 0.5:
-				moonImage = 'modules/phases/pix/wanecres2.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 1:
-				moonImage = 'modules/phases/pix/wanecres1.png';
-				moonPhase = "new_moon";
-				break;
-			case phase < 1.5:
-				moonImage = 'modules/phases/pix/newmoon.png'; // new moon
-				moonPhase = "new_moon";
-				break;
-			case phase < 2:
-				moonImage = 'modules/phases/pix/waxcres1.png';
-				moonPhase = "new_moon";
-				break;
-			case phase < 2.5:
-				moonImage = 'modules/phases/pix/waxcres5.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 3:
-				moonImage = 'modules/phases/pix/waxcres6.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 3.5:
-				moonImage = 'modules/phases/pix/waxcres11.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 4:
-				moonImage = 'modules/phases/pix/waxcres17.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 4.5:
-				moonImage = 'modules/phases/pix/waxcres23.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 5:
-				moonImage = 'modules/phases/pix/waxcres24.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 5.5:
-				moonImage = 'modules/phases/pix/waxcres26.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 6:
-				moonImage = 'modules/phases/pix/waxcres32.png'; // waxing crescent
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 6.5:
-				moonImage = 'modules/phases/pix/waxcres33.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 7:
-				moonImage = 'modules/phases/pix/waxcres35.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 7.5:
-				moonImage = 'modules/phases/pix/waxcres41.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 8:
-				moonImage = 'modules/phases/pix/waxcres42.png';
-				moonPhase = "waxing_crescent";
-				break;
-			case phase < 8.5:
-				moonImage = 'modules/phases/pix/waxcres46.png';
-				moonPhase = "first_quarter";
-				break;
-			case phase < 9:
-				moonImage = 'modules/phases/pix/waxcres50.png'; // first quarter
-				moonPhase = "first_quarter";
-				break;
-			case phase < 9.5:
-				moonImage = 'modules/phases/pix/waxgib52.png';
-				moonPhase = "first_quarter";
-				break;
-			case phase < 10:
-				moonImage = 'modules/phases/pix/waxgib56.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 10.5:
-				moonImage = 'modules/phases/pix/waxgib62.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 11:
-				moonImage = 'modules/phases/pix/waxgib69.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 11.5:
-				moonImage = 'modules/phases/pix/waxgib77.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 12:
-				moonImage = 'modules/phases/pix/waxgib82.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 12.5:
-				moonImage = 'modules/phases/pix/waxgib86.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 13:
-				moonImage = 'modules/phases/pix/waxgib87.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 13.5:
-				moonImage = 'modules/phases/pix/waxgib90.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 14:
-				moonImage = 'modules/phases/pix/waxgib93.png'; // waxing gibbous
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 14.5:
-				moonImage = 'modules/phases/pix/waxgib96.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 15:
-				moonImage = 'modules/phases/pix/waxgib98.png';
-				moonPhase = "waxing_gibbous";
-				break;
-			case phase < 15.5:
-				moonImage = 'modules/phases/pix/waxgib99.png';
-				moonPhase = "full_moon";
-				break;
-			case phase < 16:
-				moonImage = 'modules/phases/pix/fullmoon.png'; // full moon
-				moonPhase = "full_moon";
-				break;
-			case phase < 16.5:
-				moonImage = 'modules/phases/pix/wanegib98.png';
-				moonPhase = "full_moon";
-				break;
-			case phase < 17:
-				moonImage = 'modules/phases/pix/wanegib96.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 17.5:
-				moonImage = 'modules/phases/pix/wanegib93.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 18:
-				moonImage = 'modules/phases/pix/wanegib92.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 18.5:
-				moonImage = 'modules/phases/pix/wanegib89.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 19:
-				moonImage = 'modules/phases/pix/wanegib86.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 19.5:
-				moonImage = 'modules/phases/pix/wanegib85.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 20:
-				moonImage = 'modules/phases/pix/wanegib81.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 20.5:
-				moonImage = 'modules/phases/pix/wanegib77.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 21:
-				moonImage = 'modules/phases/pix/wanegib75.png'; // waning gibbous
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 21.5:
-				moonImage = 'modules/phases/pix/wanegib71.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 22:
-				moonImage = 'modules/phases/pix/wanegib67.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 22.5:
-				moonImage = 'modules/phases/pix/wanegib60.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 23:
-				moonImage = 'modules/phases/pix/wanegib56.png';
-				moonPhase = "waning_gibbous";
-				break;
-			case phase < 23.5:
-				moonImage = 'modules/phases/pix/wanegib54.png';
-				moonPhase = "third_quarter";
-				break;
-			case phase < 24:
-				moonImage = 'modules/phases/pix/wanecres49.png'; // last quarter
-				moonPhase = "third_quarter";
-				break;
-			case phase < 24.5:
-				moonImage = 'modules/phases/pix/wanecres45.png';
-				moonPhase = "third_quarter";
-				break;
-			case phase < 25:
-				moonImage = 'modules/phases/pix/wanecres38.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 25.5:
-				moonImage = 'modules/phases/pix/wanecres28.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 26:
-				moonImage = 'modules/phases/pix/wanecres25.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 26.5:
-				moonImage = 'modules/phases/pix/wanecres19.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 27:
-				moonImage = 'modules/phases/pix/wanecres17.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 27.5:
-				moonImage = 'modules/phases/pix/wanecres15.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 28:
-				moonImage = 'modules/phases/pix/wanecres12.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 28.5:
-				moonImage = 'modules/phases/pix/wanecres10.png'; // waning crescent
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 29:
-				moonImage = 'modules/phases/pix/wanecres8.png';
-				moonPhase = "waning_crescent";
-				break;
-			case phase < 29.5:
-				moonImage = 'modules/phases/pix/wanecres6.png';
-				moonPhase = "waning_crescent";
-				break;
-		}
+        return wrapper;
+    },
 
-		if (this.config.moonPhasesNightOnly){
-			if (hour >= this.config.nightStart || hour < this.config.nightEnd) {
-				this.sendNotification("MOON_PHASE", { phase: moonPhase });
-			}
-		} else {
-			this.sendNotification("MOON_PHASE", { phase: moonPhase }); 
-		}
+    calculateMoonPhase: function(jd) {
+        const phases = [
+            { limit: 0.5, image: 'wanecres2.png', phase: "waning_crescent" },
+            { limit: 1, image: 'wanecres1.png', phase: "new_moon" },
+            { limit: 1.5, image: 'newmoon.png', phase: "new_moon" },
+            { limit: 2, image: 'waxcres1.png', phase: "new_moon" },
+            { limit: 2.5, image: 'waxcres5.png', phase: "waxing_crescent" },
+            { limit: 3, image: 'waxcres6.png', phase: "waxing_crescent" },
+            { limit: 3.5, image: 'waxcres11.png', phase: "waxing_crescent" },
+            { limit: 4, image: 'waxcres17.png', phase: "waxing_crescent" },
+            { limit: 4.5, image: 'waxcres23.png', phase: "waxing_crescent" },
+            { limit: 5, image: 'waxcres24.png', phase: "waxing_crescent" },
+            { limit: 5.5, image: 'waxcres26.png', phase: "waxing_crescent" },
+            { limit: 6, image: 'waxcres32.png', phase: "waxing_crescent" },
+            { limit: 6.5, image: 'waxcres33.png', phase: "waxing_crescent" },
+            { limit: 7, image: 'waxcres35.png', phase: "waxing_crescent" },
+            { limit: 7.5, image: 'waxcres41.png', phase: "waxing_crescent" },
+            { limit: 8, image: 'waxcres42.png', phase: "waxing_crescent" },
+            { limit: 8.5, image: 'waxcres46.png', phase: "first_quarter" },
+            { limit: 9, image: 'waxcres50.png', phase: "first_quarter" },
+            { limit: 9.5, image: 'waxgib52.png', phase: "first_quarter" },
+            { limit: 10, image: 'waxgib56.png', phase: "waxing_gibbous" },
+            { limit: 10.5, image: 'waxgib62.png', phase: "waxing_gibbous" },
+            { limit: 11, image: 'waxgib69.png', phase: "waxing_gibbous" },
+            { limit: 11.5, image: 'waxgib77.png', phase: "waxing_gibbous" },
+            { limit: 12, image: 'waxgib82.png', phase: "waxing_gibbous" },
+            { limit: 12.5, image: 'waxgib86.png', phase: "waxing_gibbous" },
+            { limit: 13, image: 'waxgib87.png', phase: "waxing_gibbous" },
+            { limit: 13.5, image: 'waxgib90.png', phase: "waxing_gibbous" },
+            { limit: 14, image: 'waxgib93.png', phase: "waxing_gibbous" },
+            { limit: 14.5, image: 'waxgib96.png', phase: "waxing_gibbous" },
+            { limit: 15, image: 'waxgib98.png', phase: "waxing_gibbous" },
+            { limit: 15.5, image: 'waxgib99.png', phase: "full_moon" },
+            { limit: 16, image: 'fullmoon.png', phase: "full_moon" },
+            { limit: 16.5, image: 'wanegib98.png', phase: "full_moon" },
+            { limit: 17, image: 'wanegib96.png', phase: "waning_gibbous" },
+            { limit: 17.5, image: 'wanegib93.png', phase: "waning_gibbous" },
+            { limit: 18, image: 'wanegib92.png', phase: "waning_gibbous" },
+            { limit: 18.5, image: 'wanegib89.png', phase: "waning_gibbous" },
+            { limit: 19, image: 'wanegib86.png', phase: "waning_gibbous" },
+            { limit: 19.5, image: 'wanegib85.png', phase: "waning_gibbous" },
+            { limit: 20, image: 'wanegib81.png', phase: "waning_gibbous" },
+            { limit: 20.5, image: 'wanegib77.png', phase: "waning_gibbous" },
+            { limit: 21, image: 'wanegib75.png', phase: "waning_gibbous" },
+            { limit: 21.5, image: 'wanegib71.png', phase: "waning_gibbous" },
+            { limit: 22, image: 'wanegib67.png', phase: "waning_gibbous" },
+            { limit: 22.5, image: 'wanegib60.png', phase: "waning_gibbous" },
+            { limit: 23, image: 'wanegib56.png', phase: "waning_gibbous" },
+            { limit: 23.5, image: 'wanegib54.png', phase: "third_quarter" },
+            { limit: 24, image: 'wanecres49.png', phase: "third_quarter" },
+            { limit: 24.5, image: 'wanecres45.png', phase: "third_quarter" },
+            { limit: 25, image: 'wanecres38.png', phase: "waning_crescent" },
+            { limit: 25.5, image: 'wanecres28.png', phase: "waning_crescent" },
+            { limit: 26, image: 'wanecres25.png', phase: "waning_crescent" },
+            { limit: 26.5, image: 'wanecresb19.png', phase: "waning_crescent" },
+            { limit: 27, image: 'wanecres17.png', phase: "waning_crescent" },
+            { limit: 27.5, image: 'wanecres15.png', phase: "waning_crescent" },
+            { limit: 28, image: 'wanecres12.png', phase: "waning_crescent" },
+            { limit: 28.5, image: 'wanecres10.png', phase: "waning_crescent" },
+            { limit: 29, image: 'wanecres8.png', phase: "waning_crescent" },
+            { limit: 29.5, image: 'wanecres6.png', phase: "waning_crescent" }
+        ];
 
-		// Create and return the necessary HTML
-		var wrapper = document.createElement("div");
-		wrapper.style.height = "calc(" + this.config.height + "px + 5px";
+        let daysSinceNew = jd - 2451549.5;
+        let phase = (daysSinceNew / 29.5306) % 1 * 29.5306;
 
-		var img = document.createElement("img");
-			img.style.height = this.config.height + "px";
-			img.style.widht = this.config.width + "px";
-			img.style.float = "right";
-			img.style.paddingRight = "10px";
-			img.src = moonImage;
-	 
-		wrapper.appendChild(img);
+        for (let item of phases) {
+            if (phase < item.limit) {
+                return item;
+            }
+        }
+        return phases[0];
+        //Log.info(phase);
+    },
 
-		var txt = document.createElement("span");
-			txt.className = "medium bright";
-			txt.style.float = "left";
-			txt.innerHTML = "<header><i class=\"fa fa-moon\"></i> " + this.translate("Moon_Phases") + "</header>" + this.translate(moonPhase);
+    calculateJulianDate: function(date) {
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        if (month < 3) { year--; month += 12; }
 
-		wrapper.appendChild(txt);
-
-		return wrapper;
-	}
+        const a = Math.floor(year / 100);
+        const b = 2 - a + Math.floor(a / 4);
+        return Math.floor(365.25 * (year + 4716)) + Math.floor(30.6001 * (month + 1)) + day + b - 1524.5;
+    }
 });

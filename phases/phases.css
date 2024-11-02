@@ -1,3 +1,13 @@
+.phases {
+  margin-bottom: 10px;
+}
+
+.phases img {
+  float: right;
+  margin-right: -5px;
+  margin-top: -45px;
+}
+
 .compliments .pix {
   position: relative;
   top: 120px;

@@ -13,7 +13,7 @@ Module.register("simpletext",{
 
 	defaults: {
 		text: "",
-		cssClass: "midget"
+		cssClass: "medium"
 	},
 
 	getScripts: function () {
@@ -21,7 +21,9 @@ Module.register("simpletext",{
 	},
 	
 	getStyles: function () {
-		return ["font-awesome.css"];
+		return [
+				//	"fontawesome.css"
+				];
 	},
 
 	start: function () {
