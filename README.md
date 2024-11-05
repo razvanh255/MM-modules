@@ -1,1 +1,1 @@
-Collection of MagicMirror modules
+Collection of MagicMirror2 modules
