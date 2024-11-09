@@ -26,7 +26,7 @@ Do not make modification and do not replace the default module, just add <i>disa
 
 #### Onecall API loader and single instance
 
-<img src=https://github.com/razvanh255/MagicMirror/blob/master/modules/onecall/onecall.png width="300">
+<img src=https://github.com/razvanh255/MM-modules/blob/main/onecall/onecall.png width="300">
 
 
 	{
