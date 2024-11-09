@@ -20,3 +20,5 @@ As a number, 1 billion is an almost unimaginable. Here’s a way to help you ima
 			decimalSymbol: config.decimal,
 		}
 	},
+
+Designed by Răzvan Cristea https://github.com/razvanh255 Creative Commons BY-NC-SA 4.0, Romania.
