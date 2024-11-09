@@ -16,4 +16,4 @@ This module is no longer maintained, will not have any improvements or bug fixes
 			}
 		},
 
-Redesigned by Răzvan Cristea https://github.com/cristearazvanh Creative Commons BY-NC-SA 4.0, Romania.
+Redesigned by Răzvan Cristea https://github.com/razvanh255 Creative Commons BY-NC-SA 4.0, Romania.
