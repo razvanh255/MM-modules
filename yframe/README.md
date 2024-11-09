@@ -2,9 +2,6 @@
 
 [![Platform](https://img.shields.io/badge/platform-MagicMirror2-informational)](https://github.com/cristearazvanh/MagicMirror2)
 [![CC-0 license](https://img.shields.io/badge/License-CC--4.0-blue.svg)](https://creativecommons.org/licenses/by-nd/4.0)
-[![GitHub branches](https://badgen.net/github/branches/cristearazvanh/yframe)](https://github.com/cristearazvanh/yframe)
-[![GitHub forks](https://badgen.net/github/forks/cristearazvanh/yframe)](https://github.com/cristearazvanh/yframe)
-[![GitHub stars](https://badgen.net/github/stars/cristearazvanh/yframe)](https://github.com/cristearazvanh/yframe)
 
 HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-player code to be displayed publicly), Bandcamp, Audiomack, Dailymotion, DTube, Metacafe, Ted, lbry.tv & Web iframe module for MagicMirror2
 <br>This module is no longer maintained, will not have any improvements or bug fixes.
@@ -91,5 +88,5 @@ HTML5 Video, Youtube, Vimeo, Soundcloud (playlist tracks must have embeded-playe
 	}
 
 Designed by Răzvan Cristea
-https://github.com/cristearazvanh
+https://github.com/razvanh255
 Creative Commons BY-NC-SA 4.0, Romania.
