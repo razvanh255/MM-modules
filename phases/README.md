@@ -2,17 +2,13 @@
 
 [![Platform](https://img.shields.io/badge/platform-MagicMirror2-informational)](https://github.com/cristearazvanh/MagicMirror2)
 [![CC-0 license](https://img.shields.io/badge/License-CC--4.0-blue.svg)](https://creativecommons.org/licenses/by-nd/4.0)
-[![GitHub branches](https://badgen.net/github/branches/cristearazvanh/phases)](https://github.com/cristearazvanh/phases)
-[![GitHub forks](https://badgen.net/github/forks/cristearazvanh/phases)](https://github.com/cristearazvanh/phases)
-[![GitHub stars](https://badgen.net/github/stars/cristearazvanh/phases)](https://github.com/cristearazvanh/phases)
 
-https://github.com/cristearazvanh/phases
 
 Magic Mirror Module that displays the current moon phase with compliments
 
-Based on Sven1603 / mmm-moon-phase-display and mykle1 / MMM-Lunartic images.
+Based on [Sven1603 / mmm-moon-phase-display](https://github.com/Sven1603/mmm-moon-phase-display) and [mykle1 / MMM-Lunartic](https://github.com/mykle1/MMM-Lunartic) images.
 
-<img src=https://github.com/cristearazvanh/phases/blob/master/phases.png>
+<img src=https://github.com/razvanh255/MagicMirror/blob/master/modules/phases/phases.png>
 
 ## Using the module
 
@@ -37,7 +33,6 @@ Configure the module in your `config.js` file.
 
 ## Compliments
 
-You need to use my compliments_plus to work with phases compliments https://github.com/cristearazvanh/compliments_plus
 
         compliments: {
                 new_moon : [
@@ -66,4 +61,4 @@ You need to use my compliments_plus to work with phases compliments https://gith
                 ],
         }
 
-Redesigned by Răzvan Cristea https://github.com/cristearazvanh Creative Commons BY-NC-SA 4.0, Romania.
+Redesigned by Răzvan Cristea https://github.com/razvanh255 Creative Commons BY-NC-SA 4.0, Romania.
