@@ -10,30 +10,39 @@
  * Original MagicMirror² MIT Licensed.
  */
 Module.register("cndloader", {
+	  defaults: {
+	    async: false,
+	  },
 
     async start() {
         Log.info("Starting module: " + this.name);
-        //	loadResources();
+        if (this.config.async) {
+        	loadResources();
+        }
     },
 
     getScripts () {
-		return [
-			'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js',
-	        'https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.46/moment-timezone-with-data.min.js',
-	        'https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.2.4/nunjucks.min.js',
-	        'https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js',
-	        'https://cdnjs.cloudflare.com/ajax/libs/croner/8.1.2/croner.umd.min.js'
-		];
+    	if (!this.config.async) {
+			return [
+				'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js',
+		        'https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.46/moment-timezone-with-data.min.js',
+		        'https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.2.4/nunjucks.min.js',
+		        'https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js',
+		        'https://cdnjs.cloudflare.com/ajax/libs/croner/8.1.2/croner.umd.min.js'
+			];
+		}
 	},
 
 	getStyles () {
-		return [
-			'https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css',
-	        'https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.min.css',
-	        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css',
-	        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/v4-shims.min.css',
-	        'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'
-		];
+		if (!this.config.async) {
+			return [
+				'https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css',
+		        'https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.min.css',
+		        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css',
+		        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/v4-shims.min.css',
+		        'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'
+			];
+		}
 	},
 
 /* For test only */
