@@ -9,7 +9,7 @@ MagicMirror2 stand alone module based on Openweathermap Air Pollution
 
 #### Air Quality Index
 
-<img src=https://github.com/razvanh255/MagicMirror/blob/master/modules/pollution/pollution.png>
+<img src=https://github.com/razvanh255/MM-modules/blob/main/pollution/pollution.png>
 
 	{
 		module: "pollution",
