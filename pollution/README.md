@@ -2,18 +2,14 @@
 
 [![Platform](https://img.shields.io/badge/platform-MagicMirror2-informational)](https://github.com/cristearazvanh/MagicMirror2)
 [![CC-0 license](https://img.shields.io/badge/License-CC--4.0-blue.svg)](https://creativecommons.org/licenses/by-nd/4.0)
-[![GitHub branches](https://badgen.net/github/branches/cristearazvanh/pollution)](https://github.com/cristearazvanh/pollution)
-[![GitHub forks](https://badgen.net/github/forks/cristearazvanh/pollution)](https://github.com/cristearazvanh/pollution)
-[![GitHub stars](https://badgen.net/github/stars/cristearazvanh/pollution)](https://github.com/cristearazvanh/pollution)
 
-https://github.com/cristearazvanh/pollution
 
 MagicMirror2 stand alone module based on Openweathermap Air Pollution
 <br>Keep in mind that this module is for my personal use and not necessarily for sharing so don't create issues or pull requests.
 
 #### Air Quality Index
 
-<img src=https://github.com/cristearazvanh/pollution/blob/master/pollution.png>
+<img src=https://github.com/razvanh255/MagicMirror/blob/master/modules/pollution/pollution.png>
 
 	{
 		module: "pollution",
@@ -31,9 +27,8 @@ MagicMirror2 stand alone module based on Openweathermap Air Pollution
 	},
 
 
-#### Air Quality Index with pollutans calculation accoring EU standards and oneLoader from onecall https://github.com/cristearazvanh/onecall
+#### Air Quality Index with pollutans calculation accoring EU standards and oneLoader from Onecall 
 
-<img src=https://github.com/cristearazvanh/pollution/blob/master/oneLoader.png>
 
 	{
 		module: "pollution",
@@ -61,8 +56,7 @@ MagicMirror2 stand alone module based on Openweathermap Air Pollution
 	*/
 
 Air Quality compliments to put in your config.js
-<br>You need to use my compliments_plus to work with AQI compliments
-https://github.com/cristearazvanh/compliments_plus
+
 
 	compliments: {
 		AQI_1 : [
@@ -83,5 +77,5 @@ https://github.com/cristearazvanh/compliments_plus
 	}
 
 Designed by Răzvan Cristea
-https://github.com/cristearazvanh
+https://github.com/razvanh255
 Creative Commons BY-NC-SA 4.0, Romania.
