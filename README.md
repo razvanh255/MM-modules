@@ -6,4 +6,4 @@ Collection of MagicMirror2 modules
 <img src=https://github.com/razvanh255/MM-modules/blob/main/startrek.png width=300>
 </td></tr></table>
 
-Designed by Răzvan Cristea https://github.com/cristearazvanh Creative Commons BY-NC-SA 4.0, Romania.
+Designed by Răzvan Cristea https://github.com/razvanh255 Creative Commons BY-NC-SA 4.0, Romania.
