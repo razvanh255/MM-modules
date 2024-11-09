@@ -8,7 +8,7 @@ Magic Mirror Module that displays the current moon phase with compliments
 
 Based on [Sven1603 / mmm-moon-phase-display](https://github.com/Sven1603/mmm-moon-phase-display) and [mykle1 / MMM-Lunartic](https://github.com/mykle1/MMM-Lunartic) images.
 
-<img src=[https://github.com/razvanh255/MagicMirror/blob/master/modules/phases/phases.png](https://github.com/razvanh255/MM-modules/blob/main/phases/phases.png)>
+<img src=https://github.com/razvanh255/MM-modules/blob/main/phases/phases.png>
 
 ## Using the module
 
