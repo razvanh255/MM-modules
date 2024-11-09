@@ -1,16 +1,11 @@
 # lifecounter
 
-[![Platform](https://img.shields.io/badge/platform-MagicMirror2-informational)](https://github.com/cristearazvanh/MagicMirror2)
+[![Platform](https://img.shields.io/badge/platform-MagicMirror2-informational)](https://github.com/razvanh255/MagicMirror2)
 [![CC-0 license](https://img.shields.io/badge/License-CC--4.0-blue.svg)](https://creativecommons.org/licenses/by-nd/4.0)
-[![GitHub branches](https://badgen.net/github/branches/cristearazvanh/lifecounter)](https://github.com/cristearazvanh/lifecounter)
-[![GitHub forks](https://badgen.net/github/forks/cristearazvanh/lifecounter)](https://github.com/cristearazvanh/lifecounter)
-[![GitHub stars](https://badgen.net/github/stars/cristearazvanh/lifecounter)](https://github.com/cristearazvanh/lifecounter)
 
-https://github.com/cristearazvanh/lifecounter
 
 As a number, 1 billion is an almost unimaginable. Here’s a way to help you imagine it. Use 1 billion—with its nine zeros—to measure your time. Look forward or back to your 1-billionth-second birthday (aprox. 31 years, 8 months, 9 days) or 2-billionth-second birthday (aprox. 63 years, 4 months, 18 days) maybe even 3-billionth-second birthday (aprox. 95 years, 27 days). Mark it. Celebrate it. Then keep counting. Measure 1 billion with the seconds of your life.
 
-<img src=https://github.com/cristearazvanh/lifecounter/blob/master/preview.png>
 <br>(1967-10-13)
 
 	{
