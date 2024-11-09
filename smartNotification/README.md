@@ -6,7 +6,7 @@
 
 MagicMirror 2 Notification receiver, dimmer, alert & timer trigger for my own use
 
-<img src=https://github.com/razvanh255/MagicMirror/blob/master/modules/smartNotification/notification.png>
+<img src=https://github.com/razvanh255/MM-modules/blob/main/smartNotification/notification.png>
 
 All settings inside of module or in config.js
 
