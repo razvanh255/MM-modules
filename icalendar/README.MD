@@ -7,4 +7,4 @@
 
 https://github.com/MichMich/MagicMirror/tree/v1.0.0
 
-Redesigned by Răzvan Cristea https://github.com/cristearazvanh Creative Commons BY-NC-SA 4.0, Romania.
+Redesigned by Răzvan Cristea https://github.com/razvanh255 Creative Commons BY-NC-SA 4.0, Romania.
