@@ -1,12 +1,9 @@
 # onecall (Openweathermap)
 
-[![Platform](https://img.shields.io/badge/platform-MagicMirror2-informational)](https://github.com/cristearazvanh/MagicMirror2)
+[![Platform](https://img.shields.io/badge/platform-MagicMirror2-informational)](https://github.com/razvanh255/MagicMirror2)
 [![CC-0 license](https://img.shields.io/badge/License-CC--4.0-blue.svg)](https://creativecommons.org/licenses/by-nd/4.0)
-[![GitHub branches](https://badgen.net/github/branches/cristearazvanh/onecall)](https://github.com/cristearazvanh/onecall)
-[![GitHub forks](https://badgen.net/github/forks/cristearazvanh/onecall)](https://github.com/cristearazvanh/onecall)
-[![GitHub stars](https://badgen.net/github/stars/cristearazvanh/onecall)](https://github.com/cristearazvanh/onecall)
 
-https://github.com/cristearazvanh/onecall
+
 
 Modified MagicMirror2 original current & forecast weather module based on Openweathermap with Onecall endpoint and compliments. 
 
@@ -29,9 +26,8 @@ Do not make modification and do not replace the default module, just add <i>disa
 
 #### Onecall API loader and single instance
 
-<img src=https://github.com/cristearazvanh/onecall/blob/master/onecall.png width="300">
+<img src=https://github.com/razvanh255/MagicMirror/blob/master/modules/onecall/onecall.png width="300">
 
-(appid2 is optional for https://github.com/cristearazvanh/pollution)
 
 	{
 		module: "onecall",
@@ -57,7 +53,6 @@ Do not make modification and do not replace the default module, just add <i>disa
 
 #### Current weather
 
-<img src=https://github.com/cristearazvanh/onecall/blob/master/current.png width="500">
 
 	{
 		module: "onecall",
@@ -87,7 +82,6 @@ Do not make modification and do not replace the default module, just add <i>disa
 
 #### Hourly forecast (3 hours)
 
-<img src=https://github.com/cristearazvanh/onecall/blob/master/hourly.png width="500">
 
 	{
 		module: "onecall",
@@ -108,7 +102,6 @@ Do not make modification and do not replace the default module, just add <i>disa
 
 #### Daily forecast (6 days)
 
-<img src=https://github.com/cristearazvanh/onecall/blob/master/daily.png width="400">
 
 	{
 		module: "onecall",
@@ -130,7 +123,6 @@ Do not make modification and do not replace the default module, just add <i>disa
 
 #### Classic icons and separate 3 instances without oneLoader (not recommanded)
 
-<img src=https://github.com/cristearazvanh/onecall/blob/master/icons.png width="300">
 
 	{
 		module: "onecall",
@@ -186,7 +178,6 @@ Do not make modification and do not replace the default module, just add <i>disa
 
 #### Single instance with table forecast (8 hours and 8 days)
 
-<img src=https://github.com/cristearazvanh/onecall/blob/master/table.png width="300">
 
 	{
 		module: "onecall",
@@ -213,8 +204,7 @@ Do not make modification and do not replace the default module, just add <i>disa
 	},
 
 Weather compliments to put in your config.js
-<br>You need to use my compliments_plus to work with onecall compliments
-https://github.com/cristearazvanh/compliments_plus
+
 
 	compliments: {		
 		day_sunny : [
@@ -271,5 +261,5 @@ https://github.com/cristearazvanh/compliments_plus
 	}
 
 Redesigned by Răzvan Cristea
-https://github.com/cristearazvanh
+https://github.com/razvanh255
 Creative Commons BY-NC-SA 4.0, Romania.
