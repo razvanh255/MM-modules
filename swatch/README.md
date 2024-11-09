@@ -6,7 +6,7 @@
 
 Simple Swatch .beat Internet Time MagicMirror2 module
 
-<img src=https://github.com/razvanh255/MagicMirror/blob/master/modules/swatch/preview.png>
+<img src=https://github.com/razvanh255/MM-modules/blob/main/swatch/preview.png>
 
 Instead of hours and minutes, the mean solar day is divided into 1000 parts called ".beats". Each .beat is equal to one decimal minute in the French Revolutionary decimal time system and lasts 1 minute and 26.4 seconds (86.4 seconds) in standard time. Times are notated as a 3-digit number out of 1000 after midnight. So, for example @248 would indicate a time 248 .beats after midnight representing ​248⁄1000 of a day, just over 5 hours and 57 minutes.
 
